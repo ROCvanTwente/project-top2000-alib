@@ -287,7 +287,7 @@ namespace TemplateJwtProject.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
-            modelBuilder.Entity("TemplateJwtProject.Models.Song", b =>
+            modelBuilder.Entity("TemplateJwtProject.Models.Songs", b =>
                 {
                     b.Property<int>("SongId")
                         .ValueGeneratedOnAdd()
@@ -318,7 +318,7 @@ namespace TemplateJwtProject.Migrations
 
                     b.HasIndex("ArtistId");
 
-                    b.ToTable("Song");
+                    b.ToTable("Songs");
                 });
 
             modelBuilder.Entity("TemplateJwtProject.Models.Top2000Entry", b =>
@@ -399,7 +399,7 @@ namespace TemplateJwtProject.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TemplateJwtProject.Models.Song", b =>
+            modelBuilder.Entity("TemplateJwtProject.Models.Songs", b =>
                 {
                     b.HasOne("TemplateJwtProject.Models.Artist", "Artist")
                         .WithMany("Songs")
@@ -412,13 +412,13 @@ namespace TemplateJwtProject.Migrations
 
             modelBuilder.Entity("TemplateJwtProject.Models.Top2000Entry", b =>
                 {
-                    b.HasOne("TemplateJwtProject.Models.Song", "Song")
+                    b.HasOne("TemplateJwtProject.Models.Songs", "Songs")
                         .WithMany("Top2000Entries")
                         .HasForeignKey("SongId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Song");
+                    b.Navigation("Songs");
                 });
 
             modelBuilder.Entity("TemplateJwtProject.Models.Artist", b =>
@@ -426,7 +426,7 @@ namespace TemplateJwtProject.Migrations
                     b.Navigation("Songs");
                 });
 
-            modelBuilder.Entity("TemplateJwtProject.Models.Song", b =>
+            modelBuilder.Entity("TemplateJwtProject.Models.Songs", b =>
                 {
                     b.Navigation("Top2000Entries");
                 });

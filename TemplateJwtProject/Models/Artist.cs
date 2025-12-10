@@ -9,6 +9,6 @@
         public string? Photo { get; set; }
 
         // Navigatie-eigenschap (EF Core)
-        public ICollection<Song> Songs { get; set; } = new List<Song>();
+        public ICollection<Songs> Songs { get; set; } = new List<Songs>();
     }
 }
