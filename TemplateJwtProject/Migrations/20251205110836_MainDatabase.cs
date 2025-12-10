@@ -27,7 +27,7 @@ namespace TemplateJwtProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Song",
+                name: "Songs",
                 columns: table => new
                 {
                     SongId = table.Column<int>(type: "int", nullable: false)

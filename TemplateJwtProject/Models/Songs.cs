@@ -1,7 +1,7 @@
 ﻿
 namespace TemplateJwtProject.Models
 {
-    public class Song
+    public class Songs
     {
         public int SongId { get; set; }
 
