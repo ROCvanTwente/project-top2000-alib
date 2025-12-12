@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TemplateJwtProject.Data;
-
 #nullable disable
 
 namespace TemplateJwtProject.Migrations
@@ -332,7 +330,12 @@ namespace TemplateJwtProject.Migrations
                     b.Property<int>("Position")
                         .HasColumnType("int");
 
+                    b.Property<int>("SongsSongId")
+                        .HasColumnType("int");
+
                     b.HasKey("SongId", "Year");
+
+                    b.HasIndex("SongsSongId");
 
                     b.ToTable("Top2000Entry");
                 });
@@ -414,7 +417,7 @@ namespace TemplateJwtProject.Migrations
                 {
                     b.HasOne("TemplateJwtProject.Models.Songs", "Songs")
                         .WithMany("Top2000Entries")
-                        .HasForeignKey("SongId")
+                        .HasForeignKey("SongsSongId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

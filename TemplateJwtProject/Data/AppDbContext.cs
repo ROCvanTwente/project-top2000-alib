@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 using TemplateJwtProject.Models;
-
-namespace TemplateJwtProject.Data;
 
 public class AppDbContext : IdentityDbContext<ApplicationUser>
 {
@@ -13,10 +10,14 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<RefreshToken> RefreshTokens { get; set; }
 
+    public DbSet<Top2000Entry> Top2000Entry { get; set; }
+    public DbSet<Songs> Songs { get; set; }
+    public DbSet<Artist> Artist { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        
+
         // RefreshToken configuratie
         builder.Entity<RefreshToken>()
             .HasOne(rt => rt.User)
@@ -30,6 +31,5 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
 
         builder.Entity<Top2000Entry>()
             .HasKey(e => new { e.SongId, e.Year });
-
     }
 }
