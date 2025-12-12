@@ -15,4 +15,37 @@ namespace TemplateJwtProject.Models
         // Navigatie-eigenschap
         public Songs Songs { get; set; } = null!;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
