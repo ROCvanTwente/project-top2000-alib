@@ -41,6 +41,7 @@ namespace TemplateJwtProject.Controllers
             {
                 SongId = song.SongId,
                 Titel = song.Titel,
+                ArtistId = song.ArtistId,
                 ArtistName = song.Artist?.Name,
                 ArtistPhoto = song.Artist?.Photo,
                 ArtistBiography = song.Artist?.Biography,
