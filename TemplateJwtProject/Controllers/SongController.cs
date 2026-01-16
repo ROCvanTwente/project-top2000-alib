@@ -43,6 +43,7 @@ namespace TemplateJwtProject.Controllers
                 Titel = song.Titel,
                 ArtistId = song.ArtistId,
                 ArtistName = song.Artist?.Name,
+                ImgUrl = song.ImgUrl,
                 ArtistPhoto = song.Artist?.Photo,
                 ArtistBiography = song.Artist?.Biography,
                 Lyrics = song.Lyrics,
