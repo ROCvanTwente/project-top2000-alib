@@ -86,7 +86,8 @@ namespace TemplateJwtProject.Controllers
                 Titel = t.Songs.Titel,
                 ArtistId = t.Songs.ArtistId,
                 ArtistName = t.Songs.Artist.Name,
-                ReleaseYear = t.Songs.ReleaseYear
+                ReleaseYear = t.Songs.ReleaseYear,
+                ImgUrl = t.Songs.ImgUrl
             });
 
             // ⭐ LIMIT TOEGEVOEGD (OPTIONEEL)
