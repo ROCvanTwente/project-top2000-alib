@@ -7,6 +7,7 @@
         public int Position { get; set; }
         public int? PositionLastYear { get; set; }
         public int? Difference { get; set; }
+        public string? ImgUrl { get; set; }
         public string Titel { get; set; } = null!;
         public int ArtistId { get; set; }
         public string ArtistName { get; set; } = null!;

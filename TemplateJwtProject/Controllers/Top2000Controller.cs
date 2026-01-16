@@ -21,7 +21,7 @@ namespace TemplateJwtProject.Controllers
     [FromQuery] int? artistId,
     [FromQuery] int? songId,
     [FromQuery] string? sort,      // <-- Toegevoegd
-    [FromQuery] int? limit         // <-- Toegevoegd
+    [FromQuery] int limit
 )
         {
             var minYear = await _db.Top2000Entry.MinAsync(e => e.Year);
@@ -86,12 +86,13 @@ namespace TemplateJwtProject.Controllers
                 Titel = t.Songs.Titel,
                 ArtistId = t.Songs.ArtistId,
                 ArtistName = t.Songs.Artist.Name,
-                ReleaseYear = t.Songs.ReleaseYear
+                ReleaseYear = t.Songs.ReleaseYear,
+                ImgUrl = t.Songs.ImgUrl
             });
 
             // ⭐ LIMIT TOEGEVOEGD (OPTIONEEL)
-            if (limit.HasValue)
-                result = result.Take(limit.Value);
+            if (limit != 0)
+                result = result.Take(limit);
 
             return Ok(result);
         }

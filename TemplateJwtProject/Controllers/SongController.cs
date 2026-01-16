@@ -51,10 +51,10 @@ namespace TemplateJwtProject.Controllers
             return Ok(dto);
         }
 
-        [HttpGet("getAllSongs")]
+        [HttpGet("getallsongs")]
         public IActionResult GetAllSongs()
         {
-            List<SongDetailDto> listSongs = new List<SongDetailDto>();
+            List<SongDto> listSongs = new List<SongDto>();
 
             var songs = _db.Songs
                 .Include(s => s.Artist).ToList();
@@ -63,12 +63,13 @@ namespace TemplateJwtProject.Controllers
 
             foreach (Songs song in songs)
             {
-                var dto = new SongDetailDto
+                var dto = new SongDto
                 {
                     SongId = song.SongId,
                     Titel = song.Titel,             // ✔ werkt nu
                     ArtistName = song.Artist?.Name,
-                    ReleaseYear = song.ReleaseYear
+                    ReleaseYear = song.ReleaseYear,
+                    ImgUrl = song.ImgUrl
                 };
                 listSongs.Add(dto);
             }
