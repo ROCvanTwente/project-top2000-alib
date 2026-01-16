@@ -44,6 +44,7 @@ namespace TemplateJwtProject.Controllers
                     .Select(e => new
                     {
                         ArtistId = e.Songs.Artist.ArtistId,
+                        SongId = e.Songs.SongId,
                         ArtistName = e.Songs.Artist.Name,
                         Wiki = e.Songs.Artist.Wiki,
                         ImgUrl = e.Songs.ImgUrl,
@@ -70,6 +71,7 @@ namespace TemplateJwtProject.Controllers
 
                         return new ArtistSongDto
                         {
+                            SongId = first.SongId,
                             Titel = first.SongTitle,
                             ReleaseYear = first.ReleaseYear,
                             HighestRank = bestRank,
@@ -138,6 +140,7 @@ namespace TemplateJwtProject.Controllers
                 ImgUrl = e.Songs.ImgUrl,
                 Biography = e.Songs.Artist.Biography,
                 Photo = e.Songs.Artist.Photo,
+                SongId = e.Songs.SongId,
                 SongTitle = e.Songs.Titel,
                 ReleaseYear = (int?)e.Songs.ReleaseYear,
                 Position = e.Position
@@ -162,6 +165,7 @@ namespace TemplateJwtProject.Controllers
 
                             return new ArtistSongDto
                             {
+                                SongId = sf.SongId,
                                 Titel = sf.SongTitle,
                                 ReleaseYear = sf.ReleaseYear,
                                 HighestRank = bestRank

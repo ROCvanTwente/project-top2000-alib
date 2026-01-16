@@ -15,6 +15,7 @@
 
     public class ArtistSongDto
     {
+        public int SongId { get; set; }
         public string Titel { get; set; } = default!;
         public int? ReleaseYear { get; set; }
         public int HighestRank { get; set; }
