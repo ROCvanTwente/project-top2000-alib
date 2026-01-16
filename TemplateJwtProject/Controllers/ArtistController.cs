@@ -48,7 +48,6 @@ namespace TemplateJwtProject.Controllers
                         Wiki = e.Songs.Artist.Wiki,
                         Biography = e.Songs.Artist.Biography,
                         Photo = e.Songs.Artist.Photo,
-
                         SongTitle = e.Songs.Titel,
                         ReleaseYear = (int?)e.Songs.ReleaseYear,
                         Position = e.Position
