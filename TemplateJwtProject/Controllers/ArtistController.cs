@@ -17,7 +17,7 @@ namespace TemplateJwtProject.Controllers
 
         [HttpGet]
         public IActionResult GetArtists(
-            [FromQuery] int? artistId,          // ✅ NIEUW
+            [FromQuery] int? artistId,
             [FromQuery] string? artist,
             [FromQuery] string? contains,
             [FromQuery] int? minSongs,
@@ -46,6 +46,7 @@ namespace TemplateJwtProject.Controllers
                         ArtistId = e.Songs.Artist.ArtistId,
                         ArtistName = e.Songs.Artist.Name,
                         Wiki = e.Songs.Artist.Wiki,
+                        ImgUrl = e.Songs.ImgUrl,
                         Biography = e.Songs.Artist.Biography,
                         Photo = e.Songs.Artist.Photo,
                         SongTitle = e.Songs.Titel,
@@ -71,7 +72,8 @@ namespace TemplateJwtProject.Controllers
                         {
                             Titel = first.SongTitle,
                             ReleaseYear = first.ReleaseYear,
-                            HighestRank = bestRank
+                            HighestRank = bestRank,
+                            ImgUrl = first.ImgUrl
                         };
                     })
                     .OrderBy(s => s.HighestRank == 0 ? int.MaxValue : s.HighestRank)
@@ -133,6 +135,7 @@ namespace TemplateJwtProject.Controllers
                 ArtistId = e.Songs.Artist.ArtistId,
                 ArtistName = e.Songs.Artist.Name,
                 Wiki = e.Songs.Artist.Wiki,
+                ImgUrl = e.Songs.ImgUrl,
                 Biography = e.Songs.Artist.Biography,
                 Photo = e.Songs.Artist.Photo,
                 SongTitle = e.Songs.Titel,

@@ -18,6 +18,7 @@
         public string Titel { get; set; } = default!;
         public int? ReleaseYear { get; set; }
         public int HighestRank { get; set; }
+        public string? ImgUrl { get; set; }
     }
 
     public class ArtistStatsDto
