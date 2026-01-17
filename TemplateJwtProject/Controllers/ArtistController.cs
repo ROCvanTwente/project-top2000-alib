@@ -98,8 +98,11 @@ namespace TemplateJwtProject.Controllers
                     var oldest = withYear.OrderBy(s => s.ReleaseYear).First();
                     var newest = withYear.OrderByDescending(s => s.ReleaseYear).First();
 
+                    oldestSong.SongId = oldest.SongId;
                     oldestSong.Titel = oldest.Titel;
                     oldestSong.ReleaseYear = oldest.ReleaseYear;
+
+                    newestSong.SongId = newest.SongId;
                     newestSong.Titel = newest.Titel;
                     newestSong.ReleaseYear = newest.ReleaseYear;
                 }
@@ -187,8 +190,11 @@ namespace TemplateJwtProject.Controllers
                     {
                         var o = withYear.OrderBy(s => s.ReleaseYear).First();
                         var n = withYear.OrderByDescending(s => s.ReleaseYear).First();
+
+                        oldest.SongId = o.SongId;
                         oldest.Titel = o.Titel;
                         oldest.ReleaseYear = o.ReleaseYear;
+                        newest.SongId = n.SongId;
                         newest.Titel = n.Titel;
                         newest.ReleaseYear = n.ReleaseYear;
                     }

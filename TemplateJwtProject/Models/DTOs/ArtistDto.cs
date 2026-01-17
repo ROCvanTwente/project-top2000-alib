@@ -33,6 +33,7 @@
 
     public class SongSimpleDto
     {
+        public int SongId { get; set; }
         public string Titel { get; set; } = "";
         public int? ReleaseYear { get; set; } = null;
     }
