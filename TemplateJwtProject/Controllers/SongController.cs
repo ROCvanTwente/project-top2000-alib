@@ -68,7 +68,7 @@ namespace TemplateJwtProject.Controllers
                 var dto = new SongDto
                 {
                     SongId = song.SongId,
-                    Titel = song.Titel,             // ✔ werkt nu
+                    Titel = song.Titel,
                     ArtistName = song.Artist?.Name,
                     ReleaseYear = song.ReleaseYear,
                     ImgUrl = song.ImgUrl
