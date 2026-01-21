@@ -15,9 +15,11 @@
 
     public class ArtistSongDto
     {
+        public int SongId { get; set; }
         public string Titel { get; set; } = default!;
         public int? ReleaseYear { get; set; }
         public int HighestRank { get; set; }
+        public string? ImgUrl { get; set; }
     }
 
     public class ArtistStatsDto
@@ -31,6 +33,7 @@
 
     public class SongSimpleDto
     {
+        public int SongId { get; set; }
         public string Titel { get; set; } = "";
         public int? ReleaseYear { get; set; } = null;
     }

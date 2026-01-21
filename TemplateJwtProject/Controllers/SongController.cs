@@ -41,7 +41,9 @@ namespace TemplateJwtProject.Controllers
             {
                 SongId = song.SongId,
                 Titel = song.Titel,
+                ArtistId = song.ArtistId,
                 ArtistName = song.Artist?.Name,
+                ImgUrl = song.ImgUrl,
                 ArtistPhoto = song.Artist?.Photo,
                 ArtistBiography = song.Artist?.Biography,
                 Lyrics = song.Lyrics,
@@ -66,7 +68,7 @@ namespace TemplateJwtProject.Controllers
                 var dto = new SongDto
                 {
                     SongId = song.SongId,
-                    Titel = song.Titel,             // ✔ werkt nu
+                    Titel = song.Titel,
                     ArtistName = song.Artist?.Name,
                     ReleaseYear = song.ReleaseYear,
                     ImgUrl = song.ImgUrl

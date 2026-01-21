@@ -17,7 +17,7 @@ namespace TemplateJwtProject.Controllers
 
         [HttpGet]
         public IActionResult GetArtists(
-            [FromQuery] int? artistId,          // ✅ NIEUW
+            [FromQuery] int? artistId,
             [FromQuery] string? artist,
             [FromQuery] string? contains,
             [FromQuery] int? minSongs,
@@ -44,8 +44,10 @@ namespace TemplateJwtProject.Controllers
                     .Select(e => new
                     {
                         ArtistId = e.Songs.Artist.ArtistId,
+                        SongId = e.Songs.SongId,
                         ArtistName = e.Songs.Artist.Name,
                         Wiki = e.Songs.Artist.Wiki,
+                        ImgUrl = e.Songs.ImgUrl,
                         Biography = e.Songs.Artist.Biography,
                         Photo = e.Songs.Artist.Photo,
                         SongTitle = e.Songs.Titel,
@@ -69,9 +71,11 @@ namespace TemplateJwtProject.Controllers
 
                         return new ArtistSongDto
                         {
+                            SongId = first.SongId,
                             Titel = first.SongTitle,
                             ReleaseYear = first.ReleaseYear,
-                            HighestRank = bestRank
+                            HighestRank = bestRank,
+                            ImgUrl = first.ImgUrl
                         };
                     })
                     .OrderBy(s => s.HighestRank == 0 ? int.MaxValue : s.HighestRank)
@@ -94,8 +98,11 @@ namespace TemplateJwtProject.Controllers
                     var oldest = withYear.OrderBy(s => s.ReleaseYear).First();
                     var newest = withYear.OrderByDescending(s => s.ReleaseYear).First();
 
+                    oldestSong.SongId = oldest.SongId;
                     oldestSong.Titel = oldest.Titel;
                     oldestSong.ReleaseYear = oldest.ReleaseYear;
+
+                    newestSong.SongId = newest.SongId;
                     newestSong.Titel = newest.Titel;
                     newestSong.ReleaseYear = newest.ReleaseYear;
                 }
@@ -133,8 +140,10 @@ namespace TemplateJwtProject.Controllers
                 ArtistId = e.Songs.Artist.ArtistId,
                 ArtistName = e.Songs.Artist.Name,
                 Wiki = e.Songs.Artist.Wiki,
+                ImgUrl = e.Songs.ImgUrl,
                 Biography = e.Songs.Artist.Biography,
                 Photo = e.Songs.Artist.Photo,
+                SongId = e.Songs.SongId,
                 SongTitle = e.Songs.Titel,
                 ReleaseYear = (int?)e.Songs.ReleaseYear,
                 Position = e.Position
@@ -159,6 +168,7 @@ namespace TemplateJwtProject.Controllers
 
                             return new ArtistSongDto
                             {
+                                SongId = sf.SongId,
                                 Titel = sf.SongTitle,
                                 ReleaseYear = sf.ReleaseYear,
                                 HighestRank = bestRank
@@ -180,8 +190,11 @@ namespace TemplateJwtProject.Controllers
                     {
                         var o = withYear.OrderBy(s => s.ReleaseYear).First();
                         var n = withYear.OrderByDescending(s => s.ReleaseYear).First();
+
+                        oldest.SongId = o.SongId;
                         oldest.Titel = o.Titel;
                         oldest.ReleaseYear = o.ReleaseYear;
+                        newest.SongId = n.SongId;
                         newest.Titel = n.Titel;
                         newest.ReleaseYear = n.ReleaseYear;
                     }
