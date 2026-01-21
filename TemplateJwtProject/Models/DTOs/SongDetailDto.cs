@@ -11,6 +11,7 @@
         public string ArtistBiography { get; set; }
         public string Lyrics { get; set; }
         public int? ReleaseYear { get; set; }
+        public string Youtube { get; set; }
         public List<ChartPointDto> ChartHistory { get; set; }
     }
 

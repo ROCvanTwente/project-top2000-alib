@@ -2,7 +2,7 @@
 {
     public class ArtistDto
     {
-        public int ArtistId { get; set; }              // ✅ nieuw
+        public int ArtistId { get; set; }
         public string ArtistName { get; set; } = default!;
         public string WikipediaUrl { get; set; } = "";
 

@@ -20,7 +20,7 @@ namespace TemplateJwtProject.Controllers
     int year,
     [FromQuery] int? artistId,
     [FromQuery] int? songId,
-    [FromQuery] string? sort,      // <-- Toegevoegd
+    [FromQuery] string? sort,
     [FromQuery] int limit
 )
         {
@@ -50,13 +50,12 @@ namespace TemplateJwtProject.Controllers
                 query = query.Where(t => t.SongId == songId.Value);
             }
 
-            // ⭐ SORTERING TOEGEVOEGD — ZONDER JE BESTAANDE CODE TE VERANDEREN
             query = sort?.ToLower() switch
             {
                 "artist" => query.OrderBy(t => t.Songs.Artist.Name),
                 "title" => query.OrderBy(t => t.Songs.Titel),
                 "release" => query.OrderByDescending(t => t.Songs.ReleaseYear),
-                _ => query.OrderBy(t => t.Position) // default = Rank
+                _ => query.OrderBy(t => t.Position)
             };
 
             var entries = await query.ToListAsync();
@@ -90,7 +89,6 @@ namespace TemplateJwtProject.Controllers
                 ImgUrl = t.Songs.ImgUrl
             });
 
-            // ⭐ LIMIT TOEGEVOEGD (OPTIONEEL)
             if (limit != 0)
                 result = result.Take(limit);
 
