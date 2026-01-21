@@ -16,13 +16,7 @@ namespace TemplateJwtProject.Controllers
         }
 
         [HttpGet("{year}")]
-        public async Task<ActionResult<IEnumerable<Top2000EntryDto>>> GetTop2000ForYear(
-    int year,
-    [FromQuery] int? artistId,
-    [FromQuery] int? songId,
-    [FromQuery] string? sort,
-    [FromQuery] int? limit
-)
+        public async Task<IActionResult> GetTop5(int year, [FromQuery] int? artistId, [FromQuery] int? songId, [FromQuery] int? limit)
         {
             var minYear = await _db.Top2000Entry.MinAsync(e => e.Year);
             var maxYear = await _db.Top2000Entry.MaxAsync(e => e.Year);
@@ -50,15 +44,7 @@ namespace TemplateJwtProject.Controllers
                 query = query.Where(t => t.SongId == songId.Value);
             }
 
-            query = sort?.ToLower() switch
-            {
-                "artist" => query.OrderBy(t => t.Songs.Artist.Name),
-                "title" => query.OrderBy(t => t.Songs.Titel),
-                "release" => query.OrderByDescending(t => t.Songs.ReleaseYear),
-                _ => query.OrderBy(t => t.Position)
-            };
-
-            // ⭐ LIMIT VAN 5 TOEGEPAST (of custom via querystring)
+            query = query.OrderBy(t => t.Position);
             query = query.Take(limit ?? 5);
 
             var entries = await query.ToListAsync();
