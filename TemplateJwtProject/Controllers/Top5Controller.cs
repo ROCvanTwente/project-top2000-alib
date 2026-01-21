@@ -89,7 +89,7 @@ namespace TemplateJwtProject.Controllers
                 ArtistId = t.Songs.ArtistId,
                 ArtistName = t.Songs.Artist.Name,
                 ReleaseYear = t.Songs.ReleaseYear,
-                SongImg = t.Songs.ImgUrl
+                ImgUrl = t.Songs.ImgUrl
             });
 
             return Ok(result);

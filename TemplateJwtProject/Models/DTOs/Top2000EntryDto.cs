@@ -7,10 +7,11 @@
         public int Position { get; set; }
         public int? PositionLastYear { get; set; }
         public int? Difference { get; set; }
-        public string? ImgUrl { get; set; }
-        public string Titel { get; set; } = null!;
+        public string Titel { get; set; }
         public int ArtistId { get; set; }
-        public string ArtistName { get; set; } = null!;
+        public string ArtistName { get; set; }
         public int? ReleaseYear { get; set; }
+        public string? ImgUrl { get; set; }
+        public string? SongImg { get; set; }
     }
 }
