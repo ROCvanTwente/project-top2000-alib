@@ -9,33 +9,22 @@ namespace TemplateJwtProject.Models.DTOs
         public List<MovementDto> BiggestFalls { get; set; } = new();
         public List<BasicSongDto> NewEntries { get; set; } = new();
         public List<BasicSongDto> DroppedEntries { get; set; } = new();
+        public List<BasicSongDto> Reentries { get; set; } = new();
+        public List<BasicSongDto> Unchanged { get; set; } = new();
+        public List<BasicSongDto> AdjacentArtistRuns { get; set; } = new();
         public List<BasicSongDto> AllTimeClassics { get; set; } = new();
+        public List<OneHitDto> OneHitWonders { get; set; } = new();
+        public List<ArtistStatDto> TopArtists { get; set; } = new();
         public List<ArtistCountDto> ArtistCounts { get; set; } = new();
-    }
 
-    public class MovementDto
-    {
-        public int SongId { get; set; }
-        public string Titel { get; set; } = string.Empty;
-        public string ArtistName { get; set; } = string.Empty;
-        public int Position { get; set; }
-        public int PositionLastYear { get; set; }
-        public int Difference { get; set; } // positive = rose, negative = fell
-    }
+        // UI-friendly card wrapper
+        public List<CardDto> Cards { get; set; } = new();
 
-    public class BasicSongDto
-    {
-        public int SongId { get; set; }
-        public string Titel { get; set; } = string.Empty;
-        public string ArtistName { get; set; } = string.Empty;
-        public int? ReleaseYear { get; set; }
-    }
-
-    public class ArtistCountDto
-    {
-        public int ArtistId { get; set; }
-        public string ArtistName { get; set; } = string.Empty;
-        public int Count { get; set; }
+        // Extra fields expected by the frontend
+        public List<MovementDto>? Movements { get; set; }
+        public List<MovementDto>? SamePosition { get; set; }
+        public List<AdjacentSequenceDto>? AdjacentSequences { get; set; }
+        public List<BasicSongDto>? SingleAppearances { get; set; }
+        public List<ArtistStatDto>? ArtistStats { get; set; }
     }
 }
-
