@@ -1,6 +1,5 @@
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
-using TemplateJwtProject.Data;
 using TemplateJwtProject.Models;
 
 namespace TemplateJwtProject.Services;
