@@ -13,7 +13,7 @@ namespace TemplateJwtProject.Models
         public int Position { get; set; }
 
         // Navigatie-eigenschap
-        public Songs Songs { get; set; }
+        public Songs Songs { get; set; } = null!;
     }
 
 
